@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Smooth transition for every element */
+@layer base {
+  *, ::before, ::after {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}
+
+/* This part ensures smooth theme transitions */
+body {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
