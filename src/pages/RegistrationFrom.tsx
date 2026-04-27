@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { type CourseName, COURSES } from "../components/types";
 import { FiAlertCircle, FiAlertTriangle, FiCheckCircle } from "react-icons/fi";
-import { FaPerson } from "react-icons/fa6";
+
 
 
 const RegistrationForm = () => {

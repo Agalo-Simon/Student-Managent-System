@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { FaEye, FaPeopleGroup, FaUsers } from "react-icons/fa6";
+import { FaEye, FaUsers } from "react-icons/fa6";
 import { COURSE_INFO, COURSES, type Student } from "../components/types";
 import { FiTrash2 } from "react-icons/fi";
 
@@ -36,7 +36,7 @@ const StudentList = () => {
   }));
 
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4 space-y-8">
+    <div className="mx-auto py-8 px-4 space-y-8">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="bg-indigo-600 p-5 rounded-2xl text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider opacity-80">Total</p>
