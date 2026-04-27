@@ -26,7 +26,7 @@ const CourseDetails = () => {
         onClick={() => navigate("/students")}
         className="flex items-center gap-2 mb-8 font-bold opacity-60 hover:opacity-100"
       >
-        <FaArrowLeft size={18} /> Student Dashboard;
+        <FaArrowLeft size={18} /> Student Dashboard
       </button>
       <div className="bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
         <div className={`h-4 ${info.bg}`} />
