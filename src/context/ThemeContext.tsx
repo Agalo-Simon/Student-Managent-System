@@ -14,6 +14,7 @@ import { FiAlertCircle } from "react-icons/fi";
 
 
 
+
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
@@ -35,9 +36,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const showToast = useCallback((message: string, type: ToastType = 'success') => {
     const id = crypto.randomUUID();
     setToasts(prev => [...prev, { id, message, type }]);
-    // setTimeout(() => {
-    //   setToasts(prev => prev.filter(toast => toast.id !== id));
-    // }, 4000);
+    setTimeout(() => {
+      setToasts(prev => prev.filter(toast => toast.id !== id));
+    }, 4000);
   }, []);
   
 
@@ -55,6 +56,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                 className={`pointer-events-auto flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl border animate-in slide-in-from-right fade-in duration-300 ${
                   toast.type === 'success' ? 'bg-emerald-600 border-emerald-500 text-white' :
                   toast.type === 'error' ? 'bg-red-600 border-red-500 text-white' :
+                  toast.type === 'info' ? 'bg-yellow-500 border-yellow-500 text-white' :
                   'bg-indigo-600 border-indigo-500 text-white'
                 }`}
               >
@@ -63,7 +65,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                 {toast.type === 'info' && <FaInfo size={20} />}
                 <span className="font-bold text-sm">{toast.message}</span>
                 <button 
-                  onClick={() => setToasts(prev => prev.filter(t => t.id !== toast.id))}
+                  onClick={() => setToasts(prev => prev.filter(toast => toast.id !== toast.id))}
                   className="ml-2 opacity-70 hover:opacity-100"
                 >
                   <FaX size={16} />

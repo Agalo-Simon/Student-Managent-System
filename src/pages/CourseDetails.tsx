@@ -30,10 +30,15 @@ const CourseDetails = () => {
       </button>
       <div className="bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
         <div className={`h-4 ${info.bg}`} />
-        <div className="p-12">
+        <div className="p-8">
+          <div className="flex text-center align-middle justify-between">
           <h1 className="text-6xl font-black mb-4 tracking-tighter">
             {courseName}
           </h1>
+           <span className={`px-2 py-2 text-center self-center rounded-xl text-xs font-black uppercase tracking-widest ${info.bg} text-white shadow-lg`}>
+              {students.length} Enrolled
+            </span>
+          </div>
           <p className="text-xl opacity-60 mb-12">{info.description}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {students.map((student) => (

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { FaEye, FaPeopleGroup, FaUsers } from "react-icons/fa6";
+import { FaEye, FaUsers } from "react-icons/fa6";
 import { COURSE_INFO, COURSES, type Student } from "../components/types";
 import { FiTrash2 } from "react-icons/fi";
+import { useTheme } from "../context/ThemeContext";
 
 // --- Helpers ---
 const getRegisteredStudents = (): Student[] => JSON.parse(localStorage.getItem('registeredStudents') || '[]');
@@ -12,6 +13,7 @@ const saveRegisteredStudents = (students: Student[]) => localStorage.setItem('re
 const StudentList = () => {
   const [students, setStudents] = useState<Student[]>([]);
   const [search, setSearch] = useState('');
+  const {showToast} = useTheme();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,11 +22,11 @@ const StudentList = () => {
   }, []);
 
   const deleteStudent = (id: string, name: string) => {
-    if (window.confirm(`Remove ${name}?`)) {
       const updated = students.filter(student => student.id !== id);
       setStudents(updated);
       saveRegisteredStudents(updated);
-    }
+      showToast(`Deleted ${name} successfully`, 'info');
+    
   };
 
   const filtered = students.filter(student => student.fullName.toLowerCase().includes(search.toLowerCase()));
