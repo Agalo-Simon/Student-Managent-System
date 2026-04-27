@@ -38,7 +38,7 @@ const StudentList = () => {
   }));
 
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4 space-y-8">
+    <div className="mx-auto py-8 px-4 space-y-8">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="bg-indigo-600 p-5 rounded-2xl text-white shadow-lg">
           <p className="text-xs font-bold uppercase tracking-wider opacity-80">Total</p>

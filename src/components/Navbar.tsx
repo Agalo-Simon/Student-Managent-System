@@ -17,13 +17,13 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="mx-auto px-6">
         <div className="flex justify-between h-16">
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="bg-indigo-600 p-2 rounded-lg text-white group-hover:scale-110 transition-transform">
               <BiSolidBookOpen size={20} />
             </div>
-            <span className="font-bold text-xl font-serif tracking-tight text-indigo-600">Galos' Freeom</span>
+            <span className="font-bold text-xl font-serif tracking-tight text-indigo-600">Galos' Freedom</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-2">

@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="mt-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-indigo-600 p-2 rounded-lg text-white">
+              <div className="bg-black dark:bg-slate-900 p-2 rounded-lg text-white">
                 <FaBookOpen size={20} />
               </div>
-              <span className="font-bold text-xl tracking-tight">Galos' Freeom</span>
+              <span className="font-bold text-xl tracking-tight">Galos' Freedom</span>
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-xs">
               A comprehensive platform designed to streamline student registration, tracking, and academic performance monitoring.
