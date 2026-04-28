@@ -55,8 +55,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                 key={toast.id}
                 className={`pointer-events-auto flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl border animate-in slide-in-from-right fade-in duration-300 ${
                   toast.type === 'success' ? 'bg-emerald-600 border-emerald-500 text-white' :
-                  toast.type === 'error' ? 'bg-red-600 border-red-500 text-white' :
-                  toast.type === 'info' ? 'bg-yellow-500 border-yellow-500 text-white' :
+                  toast.type === 'error' ? 'bg-yellow-600 border-yellow-500 text-white' :
+                  toast.type === 'info' ? 'bg-red-600 border-red-500 text-white' :
                   'bg-indigo-600 border-indigo-500 text-white'
                 }`}
               >

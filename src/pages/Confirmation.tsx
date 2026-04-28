@@ -25,7 +25,7 @@ const Confirmation = () => {
     const current = getRegisteredStudents();
     saveRegisteredStudents([...current, { ...data, id: crypto.randomUUID() }]);
     localStorage.removeItem('studentDraft');
-    showToast(`${data.fullName} successfully registered!`, 'success');
+    showToast(`${data.fullName} registered successfully!`, 'success');
     navigate('/students');
   };
 

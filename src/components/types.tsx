@@ -36,4 +36,13 @@ export interface ThemeContextType {
   showToast: (message: string, type?: ToastType) => void;
 }
 
-
+// --- Modal ---
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  title: string;
+  message: string;
+  confirmText?: string;
+  cancelText?: string;
+}

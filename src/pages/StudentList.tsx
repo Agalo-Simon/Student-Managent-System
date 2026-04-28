@@ -5,6 +5,7 @@ import { FaEye, FaUsers } from "react-icons/fa6";
 import { COURSE_INFO, COURSES, type Student } from "../components/types";
 import { FiTrash2 } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
+import Modal from "../components/Model";
 
 // --- Helpers ---
 const getRegisteredStudents = (): Student[] => JSON.parse(localStorage.getItem('registeredStudents') || '[]');
@@ -12,6 +13,7 @@ const saveRegisteredStudents = (students: Student[]) => localStorage.setItem('re
 
 const StudentList = () => {
   const [students, setStudents] = useState<Student[]>([]);
+  const [confirmDelete, setConfirmDelete] = useState<{id: string,  name:string}| null>(null);
   const [search, setSearch] = useState('');
   const {showToast} = useTheme();
   const navigate = useNavigate();
@@ -21,11 +23,13 @@ const StudentList = () => {
     setStudents(getRegisteredStudents());
   }, []);
 
-  const deleteStudent = (id: string, name: string) => {
-      const updated = students.filter(student => student.id !== id);
+  const deleteStudent=() => {
+    if(!confirmDelete)return;
+      const updated = students.filter(student => student.id !==confirmDelete.id);
       setStudents(updated);
       saveRegisteredStudents(updated);
-      showToast(`Deleted ${name} successfully`, 'info');
+      showToast(`Remove ${confirmDelete.name} Successfully!`, 'info');
+      setConfirmDelete(null)
     
   };
 
@@ -97,7 +101,7 @@ const StudentList = () => {
                     </td>
                     <td className="px-6 py-4 text-right space-x-2">
                       <button onClick={() => navigate(`/course/${student.course}`)} className="p-2 hover:text-indigo-600 transition-colors"><FaEye size={18}/></button>
-                      <button onClick={() => deleteStudent(student.id, student.fullName)} className="p-2 hover:text-red-500 transition-colors"><FiTrash2 size={18}/></button>
+                      <button onClick={() => setConfirmDelete({id:student.id, name: student.fullName})} className="p-2 hover:text-red-500 transition-colors"><FiTrash2 size={18}/></button>
                     </td>
                   </tr>
                 ))}
@@ -110,6 +114,16 @@ const StudentList = () => {
             </div>
           )}
         </div>
+
+        <Modal 
+        isOpen={!!confirmDelete}
+        onClose={() => setConfirmDelete(null)}
+        onConfirm={deleteStudent}
+        title="Confirm Deletion"
+        message={`Are you sure you want to remove ${confirmDelete?.name} from the list? This action cannot be undone.`}
+        confirmText="Yes, Delete"
+        cancelText="Cancel"
+      />
       </div>
     </div>
   );
